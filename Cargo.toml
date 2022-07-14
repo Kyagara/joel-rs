@@ -1,0 +1,21 @@
+[package]
+name = "music-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tracing = "0.1.35"
+tracing-subscriber = "0.3.14"
+
+[dependencies.serenity]
+default-features = false
+features = ["gateway", "cache", "framework", "standard_framework", "voice", "rustls_backend"]
+version = "0.10.10"
+
+[dependencies.tokio]
+version = "1.19.2"
+features = ["macros", "rt-multi-thread"]
+
+[dependencies.songbird]
+version = "0.2.2"
+features = ["builtin-queue", "yt-dlp"]
