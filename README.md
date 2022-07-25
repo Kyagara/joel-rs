@@ -8,6 +8,8 @@ Some friends needed a simple discord bot for music so I decided to make this and
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Kyagara/music-rs)
 
+Enable the Message Content intent in the Discord Developer Portal.
+
 After adding the bots environment variables and clicking to deploy, check the build logs and wait, it will take some time to build and to start the bot. The bot will automatically start a worker dyno.
 
 ## License

@@ -24,7 +24,7 @@ use serenity::Result as SerenityResult;
 use serenity::{
     client::Context,
     model::prelude::{Message, ResumedEvent},
-    prelude::{Client, EventHandler},
+    prelude::{Client, EventHandler, GatewayIntents},
 };
 
 use songbird::SerenityInit;
@@ -84,7 +84,9 @@ async fn main() {
         .configure(|c| c.prefix(prefix))
         .group(&GENERAL_GROUP);
 
-    let mut client = Client::builder(&token)
+    let intents = GatewayIntents::non_privileged() | GatewayIntents::MESSAGE_CONTENT;
+
+    let mut client = Client::builder(&token, intents)
         .framework(framework)
         .event_handler(Handler)
         .register_songbird()

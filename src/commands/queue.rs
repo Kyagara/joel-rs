@@ -21,7 +21,7 @@ use crate::check_msg;
 #[command]
 #[only_in(guilds)]
 async fn queue(ctx: &Context, msg: &Message) -> CommandResult {
-    let guild = msg.guild(&ctx.cache).await.unwrap();
+    let guild = msg.guild(&ctx.cache).unwrap();
 
     let manager = songbird::get(ctx).await.unwrap();
 
