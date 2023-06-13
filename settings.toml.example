@@ -1,0 +1,4 @@
+RUST_LOG = "info"
+PREFIX = "!"
+DISCORD_TOKEN = ""
+IMAGES_FOLDER = "./images"

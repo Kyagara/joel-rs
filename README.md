@@ -1,17 +1,25 @@
-## music-rs
+## joel-rs
 
-A simple Discord music bot written in Rust.
+A very simple Discord music bot.
 
-This bot was created with the intent of just playing around with Rust _(pretty fun so far!)_ and lacks some features like having a DJ role.
+This bot was created with the intent of just playing around with Rust, it lacks a lot of features. The main purpose with this is to just play music for a small server with friends and post JOEL whenever he is needed.
 
-Some friends needed a simple discord bot for music so I decided to make this and make a deploy button on [Heroku](https://heroku.com/) in case someone might need this bot too.
+## Requirements
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Kyagara/music-rs)
+Since heroku stopped offering a free tier, you will have to use other alternatives to host this bot. I recommend [shuttle](https://github.com/shuttle-hq/shuttle).
+
+This bot requires `yt-dlp`, `ffmpeg` and `opus`.
+
+```bash
+apt install ffmpeg libopus-dev yt-dlp
+```
+
+Rename the `settings.toml.example` file to just `settings.toml` and edit its fields.
 
 Enable the Message Content intent in the Discord Developer Portal.
 
-After adding the bots environment variables and clicking to deploy, check the build logs and wait, it will take some time to build and to start the bot. The bot will automatically start a worker dyno.
+## Todo
 
-## License
-
-music-rs is licensed under the [Apache 2.0 license](https://github.com/Kyagara/music-rs/blob/master/LICENSE).
+-   Use command slash
+-   Probably another rework
+-   More JOEL (very important)
