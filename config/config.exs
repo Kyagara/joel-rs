@@ -10,6 +10,9 @@ config :nostrum,
   caches: %{
     presences: Nostrum.Cache.PresenceCache.NoOp
   },
-  gateway_intents: :all
+  gateway_intents: [
+    :guilds,
+    :guild_voice_states
+  ]
 
 config :logger, :console, metadata: [:shard, :guild, :channel], level: :info
