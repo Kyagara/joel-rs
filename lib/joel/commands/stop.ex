@@ -22,7 +22,7 @@ defmodule Joel.Commands.Stop do
     if Voice.ready?(interaction.guild_id) do
       if Voice.playing?(interaction.guild_id) do
         Voice.stop(interaction.guild_id)
-        [content: "Stopped spinning."]
+        [content: "*stops spinning*"]
       else
         [content: "There's no stopping."]
       end

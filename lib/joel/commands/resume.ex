@@ -23,7 +23,7 @@ defmodule Joel.Commands.Resume do
       if Voice.get_current_url(interaction.guild_id) != nil &&
            !Voice.playing?(interaction.guild_id) do
         Voice.resume(interaction.guild_id)
-        [content: "Resumed spinning."]
+        [content: "*spins again*"]
       else
         [content: "Nothing to resume."]
       end

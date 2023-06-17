@@ -49,7 +49,7 @@ defmodule Joel.Commands.Play do
 
         Api.create_interaction_response!(interaction, %{
           type: 4,
-          data: %{content: "Playing: #{url}."}
+          data: %{content: "*spins* #{url}."}
         })
     end
 
@@ -57,7 +57,7 @@ defmodule Joel.Commands.Play do
   end
 
   def try_play(guild_id, url) do
-    case Voice.play(guild_id, url, :ytdl, realtime: false) do
+    case Voice.play(guild_id, url, :ytdl) do
       {:error, _msg} ->
         Process.sleep(100)
         try_play(guild_id, url)

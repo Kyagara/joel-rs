@@ -23,7 +23,7 @@ defmodule Joel.Commands.Pause do
       if Voice.get_current_url(interaction.guild_id) != nil &&
            Voice.playing?(interaction.guild_id) do
         Voice.pause(interaction.guild_id)
-        [content: "Paused spinning."]
+        [content: "*pauses spin*"]
       else
         [content: "Nothing to pause."]
       end
