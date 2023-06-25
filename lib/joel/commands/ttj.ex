@@ -7,7 +7,6 @@ defmodule Joel.Commands.TTJ do
 
   alias Nostrum.Api
   alias Nostrum.Util
-  alias Joel.Embeds
 
   @impl true
   def description() do
@@ -23,11 +22,11 @@ defmodule Joel.Commands.TTJ do
   def command(interaction) do
     before = DateTime.utc_now()
 
-    {embed, _} = Embeds.create_joel_embed()
-
     embed =
-      embed
+      %Nostrum.Struct.Embed{}
+      |> put_title("MOMENT")
       |> put_image("https://media.tenor.com/ZHze27YyLIkAAAAd/joel-spinning.gif")
+      |> put_footer("JOEL MOMENT")
 
     Api.create_interaction_response!(interaction, %{
       type: 5

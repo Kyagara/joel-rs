@@ -49,7 +49,7 @@ defmodule Joel.Commands.Play do
 
         Api.create_interaction_response!(interaction, %{
           type: 4,
-          data: %{content: "*spins* #{url}."}
+          data: %{content: "*spins* #{url}"}
         })
     end
 

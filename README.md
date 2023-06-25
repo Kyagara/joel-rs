@@ -45,3 +45,4 @@ cres start _build/prod/rel/joel/bin/joel -a "start"
 ## Todo
 
 -   More JOEL (very important)
+-   Maybe do things the Elixir way? The lack of return in Elixir is throwing me off
