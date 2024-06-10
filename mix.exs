@@ -5,7 +5,7 @@ defmodule Joel.MixProject do
     [
       app: :joel,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -22,6 +22,7 @@ defmodule Joel.MixProject do
     [
       {:nostrum, github: "Kraigie/nostrum", override: true},
       {:nosedrum, "~> 0.5"},
+      {:httpoison, "~> 2.0"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end

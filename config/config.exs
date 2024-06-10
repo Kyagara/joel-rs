@@ -7,12 +7,11 @@ config :joel,
 config :nostrum,
   token: System.get_env("DISCORD_TOKEN"),
   youtubedl: "yt-dlp",
-  caches: %{
-    presences: Nostrum.Cache.PresenceCache.NoOp
-  },
   gateway_intents: [
     :guilds,
-    :guild_voice_states
+    :guild_voice_states,
+    :guild_messages,
+    :message_content
   ]
 
-config :logger, :console, metadata: [:shard, :guild, :channel], level: :info
+config :logger, :console, metadata: [:shard, :guild, :channel], level: :debug

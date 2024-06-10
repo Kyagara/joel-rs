@@ -1,5 +1,6 @@
 defmodule Joel.Consumer do
   @moduledoc false
+  alias Nostrum.Cache.Me
   alias Nostrum.Api
 
   use Nostrum.Consumer
@@ -23,6 +24,27 @@ defmodule Joel.Consumer do
 
   def handle_event({:VOICE_SPEAKING_UPDATE, payload, _ws_state}) do
     Logger.debug("VOICE_SPEAKING_UPDATE: #{inspect(payload)}")
+  end
+
+  def handle_event({:MESSAGE_CREATE, payload, _ws_state}) do
+    # Check if the user is a bot, if so, ignore.
+    if !payload.author.bot do
+      # Check if the bot was mentioned
+      Logger.info("#{payload.content}")
+
+      if payload.mentions
+         |> Enum.any?(fn m -> m.id == Me.get().id end) do
+        payload.content
+        # Remove mention of @Joel from message
+        |> String.replace("<@#{Me.get().id}>", "")
+        # Send message using Intelligence
+        |> Intelligence.send_message()
+        |> case do
+          {:ok, response} -> Api.create_message(payload.channel_id, response)
+          {:error, reason} -> Logger.error("Intelligence error: #{inspect(reason)}")
+        end
+      end
+    end
   end
 
   def handle_event({:READY, _data, _ws_state}) do
