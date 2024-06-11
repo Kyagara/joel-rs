@@ -51,6 +51,8 @@ defmodule Joel.Consumer do
             content: "Error :fish:",
             message_reference: %{message_id: message.id}
           )
+
+          Logger.error(reason)
       end
     end
   end
